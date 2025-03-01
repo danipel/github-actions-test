@@ -1,0 +1,22 @@
+# Nombre del workflow
+name: Ejecutar hola_mundo.js en Pull Requests
+# Evento que activa el workflow
+on: [push]
+
+jobs:
+  # Nombre del trabajo
+  run-script:
+    runs-on: ubuntu-latest  # Usa una máquina virtual con Ubuntu
+
+    steps:
+      # Nombre del Step
+      - name: Checkout del repositorio
+        uses: actions/checkout@v3  # Clona el código en la máquina virtual
+
+      - name: Instalar Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'  # Instala Node.js 20 (ajústalo según necesidad)
+
+      - name: Ejecutar script de JavaScript
+        run: node hola_mundo.js  # Ejecuta el script
